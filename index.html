@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Inclusivo - Martín Vivanco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         /* --- VARIABLES DE COLOR (Tema Claro por defecto) --- */
         :root {
@@ -15,6 +17,8 @@
             --border-color: #e2e8f0;
             --btn-bg: #edf2f7;
             --btn-text: #2d3748;
+            --icon-btn-bg: #2b6cb0;
+            --icon-btn-text: #ffffff;
             
             /* Accesibilidad */
             --base-font-size: 16px;
@@ -25,16 +29,18 @@
             --bg-color: #000000;
             --container-bg: #000000;
             --text-color: #ffffff;
-            --text-muted: #ffff00; /* Amarillo para destacar texto secundario en fondo negro */
-            --primary-color: #00ffff; /* Neón para enlaces y botones principales */
+            --text-muted: #ffff00;
+            --primary-color: #00ffff;
             --border-color: #ffffff;
             --btn-bg: #ffffff;
             --btn-text: #000000;
+            --icon-btn-bg: #00ffff;
+            --icon-btn-text: #000000;
         }
 
-        /* --- ESTILOS GENERALES (Tipografía clara y sin serifas) --- */
+        /* --- ESTILOS GENERALES --- */
         body {
-            font-family: Arial, Helvetica, sans-serif; /* Tipografía altamente legible */
+            font-family: Arial, Helvetica, sans-serif;
             font-size: var(--base-font-size);
             line-height: 1.6;
             background-color: var(--bg-color);
@@ -109,31 +115,56 @@
             margin-top: 30px;
         }
 
+        /* --- BOTONES DE CONTACTO CON ICONOS --- */
         .contact-info {
             list-style: none;
             padding: 0;
-            margin: 10px 0 0 0;
+            margin: 15px 0 0 0;
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
+            align-items: center;
         }
 
         .contact-info li {
             font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        a {
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--icon-btn-bg);
+            color: var(--icon-btn-text);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+
+        /* Enlaces normales */
+        a:not(.icon-btn) {
             color: var(--primary-color);
             text-decoration: underline;
             font-weight: bold;
         }
 
         /* --- LISTAS Y DETALLES --- */
-        ul {
+        ul.bullet-list {
             padding-left: 20px;
         }
 
-        li {
+        ul.bullet-list li {
             margin-bottom: 8px;
         }
 
@@ -177,8 +208,8 @@
     <div class="accessibility-bar" aria-label="Herramientas de accesibilidad">
         <strong>Herramientas de Accesibilidad:</strong>
         <div class="accessibility-controls">
-            <button onclick="changeFontSize(1)" window-size="up" aria-label="Aumentar tamaño del texto">A+</button>
-            <button onclick="changeFontSize(-1)" window-size="down" aria-label="Disminuir tamaño del texto">A-</button>
+            <button onclick="changeFontSize(1)" aria-label="Aumentar tamaño del texto">A+</button>
+            <button onclick="changeFontSize(-1)" aria-label="Disminuir tamaño del texto">A-</button>
             <button onclick="toggleContrast()" id="contrastBtn" aria-label="Cambiar a alto contraste">Alto Contraste</button>
         </div>
     </div>
@@ -188,15 +219,23 @@
             <h1>Martín Andrés Vivanco Arellano</h1>
             <p><strong>Estudiante de Ingeniería Civil en Computación mención Informática</strong></p>
             <ul class="contact-info">
-                <li>📍 Quilicura, Santiago, Chile</li>
-                <li>📧 <a href="mailto:martin.vivanco@correo.cl" aria-label="Enviar correo a martin.vivanco@correo.cl">martin.vivanco@correo.cl</a></li>
-                <li>🔗 <a href="https://github.com/tu-usuario" target="_blank" aria-label="Visitar perfil de GitHub de Martín Vivanco (se abre en una nueva pestaña)">GitHub</a></li>
+                <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Quilicura, Santiago, Chile</li>
+                <li>
+                    <a href="mailto:mvivarellano@gmail.com" class="icon-btn" aria-label="Enviar correo electrónico a mvivarellano@gmail.com">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Matawue" target="_blank" class="icon-btn" aria-label="Visitar perfil de GitHub (se abre en una nueva pestaña)">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
             </ul>
         </header>
 
         <section aria-labelledby="perfil-titulo">
             <h2 id="perfil-titulo">Perfil Profesional</h2>
-            <p>Estudiante de Ingeniería Civil en Computación con sólida formación técnica orientada al desarrollo de soluciones de software y el análisis de datos. Capacidad demostrada para diseñar arquitecturas de aplicaciones móviles y plataformas financieras, integrando APIs en tiempo real y optimizando el rendimiento. Apasionado por resolver problemas complejos mediante código limpio y estructurado.</p>
+            <p>Estudiante de Ingeniería Civil en Computación con interés en el desarrollo de soluciones de software eficientes y estructuradas. Cuento con conocimientos en el desarrollo de aplicaciones móviles y gestión de bases de datos. Apasionado por el autoaprendizaje, la integración de APIs y la resolución de problemas mediante código limpio y buenas prácticas de programación.</p>
         </section>
 
         <section aria-labelledby="habilidades-titulo">
@@ -204,50 +243,52 @@
             <div class="skills-grid">
                 <div>
                     <h3>Técnicas</h3>
-                    <ul>
+                    <ul class="bullet-list">
                         <li>Desarrollo Mobile: Flutter, Dart</li>
                         <li>Bases de Datos: SQL, PostgreSQL</li>
-                        <li>Lenguajes de Programación: JavaScript, Python</li>
+                        <li>Lenguajes de Programación: Python</li>
                         <li>Control de Versiones: Git, GitHub</li>
                     </ul>
                 </div>
                 <div>
-                    <h3>Bandas</h3>
-                    <ul>
-                        <li>Resolución de problemas complejos</li>
+                    <h3>Blandas</h3>
+                    <ul class="bullet-list">
+                        <li>Resolución de problemas</li>
                         <li>Pensamiento analítico y lógico</li>
-                        <li>Comunicación efectiva en equipos técnicos</li>
+                        <li>Comunicación efectiva</li>
                         <li>Capacidad de autoaprendizaje</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section aria-labelledby="experiencia-titulo">
-            <h2 id="experiencia-titulo">Experiencia Académica y Proyectos</h2>
+        <section aria-labelledby="proyectos-titulo">
+            <h2 id="proyectos-titulo">Proyectos Personales</h2>
             
             <div class="project">
                 <div class="project-header">
-                    <span>Desarrollador Principal – Plataforma de Monitoreo Financiero</span>
-                    <span class="project-meta">Santiago, Chile | 08/2025 – 01/2026</span>
+                    <span>Aplicación de Seguimiento de Acciones (stocks_app)</span>
+                    <span class="project-meta">Proyecto Personal | En desarrollo</span>
                 </div>
-                <p>Diseño y construcción de una aplicación dedicada al seguimiento de mercados financieros y portafolios de inversión.</p>
-                <ul>
-                    <li>Integración exitosa de APIs financieras externas para el consumo de datos de mercado en tiempo real.</li>
-                    <li>Desarrollo de una interfaz de usuario optimizada con gráficos interactivos y tablas dinámicas para el análisis fundamental de métricas clave (EPS, Free Cash Flow).</li>
+                <p>Aplicación móvil en construcción orientada a la visualización y seguimiento de datos del mercado bursátil. <a href="https://github.com/Matawue/stocks_app" target="_blank" aria-label="Ver repositorio de stocks_app en GitHub (se abre en nueva pestaña)">Ver repositorio</a></p>
+                <ul class="bullet-list">
+                    <li>Desarrollo de la interfaz de usuario utilizando Flutter y Dart.</li>
+                    <li>Investigación e implementación de APIs para el consumo de datos financieros en la aplicación.</li>
                 </ul>
             </div>
+        </section>
 
+        <section aria-labelledby="certificaciones-titulo">
+            <h2 id="certificaciones-titulo">Certificaciones y Cursos</h2>
+            
             <div class="project">
                 <div class="project-header">
-                    <span>Desarrollador Móvil – Aplicación Vocacional "U-list"</span>
-                    <span class="project-meta">Santiago, Chile | 09/2025 – 11/2025</span>
+                    <span>SQL de cero: Tu guía práctica con PostgreSQL</span>
+                    <span class="project-meta">Udemy | 16 de enero de 2026</span>
                 </div>
-                <p>Creación de una aplicación móvil orientada a la búsqueda de universidades y orientación profesional en Chile.</p>
-                <ul>
-                    <li>Implementación de arquitecturas móviles interactivas incluyendo mapas de geolocalización, tests vocacionales automatizados y foros de discusión comunitarios.</li>
-                    <li>Gestión eficiente del estado de la aplicación para asegurar transiciones fluidas y una experiencia de usuario accesible.</li>
-                </ul>
+                <p><strong>Instructores:</strong> Fernando Herrera, {d/t} - DevTalles.<br>
+                <strong>Duración:</strong> 16 horas.<br>
+                <strong>Certificado:</strong> <a href="https://ude.my/UC-052b70c9-7b57-4bf4-94d1-ebbbef87d329" target="_blank" aria-label="Ver certificado de SQL en Udemy (se abre en nueva pestaña)">UC-052b70c9-7b57-4bf4-94d1-ebbbef87d329</a></p>
             </div>
         </section>
 
@@ -256,39 +297,31 @@
             <div class="project">
                 <div class="project-header">
                     <span>Ingeniería Civil en Computación mención Informática</span>
-                    <span class="project-meta">Universidad Tecnológica Metropolitana | 2021 – Presente</span>
+                    <span class="project-meta">Universidad Tecnológica Metropolitana | 2023 – Presente</span>
                 </div>
-                <p>Formación enfocada en ingeniería de software, arquitectura de computadores, investigación de operaciones y sistemas de bases de datos.</p>
+                <p>Formación académica enfocada en ciencias de la computación, ingeniería de software, arquitectura de computadores y sistemas de bases de datos.</p>
             </div>
         </section>
 
         <section aria-labelledby="idiomas-titulo">
             <h2 id="idiomas-titulo">Idiomas</h2>
-            <ul>
-                <li><strong>Español:</strong> Nativo (C2)</li>
+            <ul class="bullet-list">
+                <li><strong>Español:</strong> Nativo</li>
                 <li><strong>Inglés:</strong> Instrumental / Técnico (Comprensión de documentación de software)</li>
             </ul>
-        </section>
-
-        <section aria-labelledby="referencias-titulo">
-            <h2 id="referencias-titulo">Referencias</h2>
-            <p>Disponibles a solicitud académica o profesional.</p>
         </section>
     </main>
 
     <script>
-        // Función para cambiar tamaño de texto
         let currentSize = 16;
         function changeFontSize(action) {
             const root = document.documentElement;
             currentSize += action;
-            // Límites para evitar que se rompa el diseño (entre 12px y 24px)
             if (currentSize < 12) currentSize = 12;
             if (currentSize > 24) currentSize = 24;
             root.style.setProperty('--base-font-size', currentSize + 'px');
         }
 
-        // Función para alternar el alto contraste
         function toggleContrast() {
             const body = document.body;
             const btn = document.getElementById('contrastBtn');
