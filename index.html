@@ -29,8 +29,8 @@
             --bg-color: #000000;
             --container-bg: #000000;
             --text-color: #ffffff;
-            --text-muted: #ffff00;
-            --primary-color: #00ffff;
+            --text-muted: #ffff00; /* Amarillo puro para alto contraste */
+            --primary-color: #00ffff; /* Cyan puro para enlaces */
             --border-color: #ffffff;
             --btn-bg: #ffffff;
             --btn-text: #000000;
@@ -178,9 +178,16 @@
             flex-wrap: wrap;
             font-weight: bold;
             background-color: var(--btn-bg);
-            padding: 8px;
+            padding: 10px;
             border-radius: 4px;
             margin-bottom: 10px;
+        }
+
+        /* CORRECCIÓN: Estilo específico de la cabecera de proyectos para alto contraste */
+        [data-theme="high-contrast"] .project-header {
+            background-color: #000000; /* Fondo negro para que resalte el texto amarillo */
+            border: 2px solid #ffffff; /* Borde blanco para delimitar la caja */
+            color: #ffffff;
         }
 
         .project-meta {
@@ -221,7 +228,7 @@
             <ul class="contact-info">
                 <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Quilicura, Santiago, Chile</li>
                 <li>
-                   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mvivarellano@gmail.com" target="_blank" class="icon-btn" aria-label="Enviar correo electrónico a mvivarellano@gmail.com">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mvivarellano@gmail.com" target="_blank" class="icon-btn" aria-label="Enviar correo electrónico a mvivarellano@gmail.com">
                         <i class="fas fa-envelope" aria-hidden="true"></i>
                     </a>
                 </li>
